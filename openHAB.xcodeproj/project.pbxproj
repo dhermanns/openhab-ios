@@ -52,6 +52,13 @@
 		DA28370A2319C7C60066D7B5 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2837092319C7C60066D7B5 /* Equatable.swift */; };
 		DA28C3602251F07000AB409C /* OSLogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA28C35F2251F07000AB409C /* OSLogHelper.swift */; };
 		DA28C362225241DE00AB409C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA28C361225241DE00AB409C /* WebKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		DA2913F0235B90C00024A702 /* OpenHABIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DA2913EF235B90C00024A702 /* OpenHABIntents.intentdefinition */; };
+		DA2913F8235B98F60024A702 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2913F7235B98F60024A702 /* IntentHandler.swift */; };
+		DA291400235B98F70024A702 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2913FF235B98F70024A702 /* IntentsUI.framework */; };
+		DA291403235B98F70024A702 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA291402235B98F70024A702 /* IntentViewController.swift */; };
+		DA291406235B98F70024A702 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA291404235B98F70024A702 /* MainInterface.storyboard */; };
+		DA29140A235B98F70024A702 /* OpenHABIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA2913FE235B98F70024A702 /* OpenHABIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DA29140D235B98F70024A702 /* OpenHABIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA2913F5235B98F60024A702 /* OpenHABIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DA2D4579233BF812003DDDEF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DA2D4578233BF812003DDDEF /* Kingfisher */; };
 		DA2D457C233BF844003DDDEF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA2D457B233BF844003DDDEF /* Alamofire */; };
 		DA2D457E233BF990003DDDEF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DA2D457D233BF990003DDDEF /* Alamofire */; };
@@ -155,6 +162,20 @@
 			remoteGlobalIDString = DFB2622618830A3600D3244D;
 			remoteInfo = openHAB;
 		};
+		DA291408235B98F70024A702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFB2621F18830A3600D3244D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2913FD235B98F70024A702;
+			remoteInfo = OpenHABIntentUI;
+		};
+		DA29140B235B98F70024A702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFB2621F18830A3600D3244D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2913F4235B98F60024A702;
+			remoteInfo = OpenHABIntent;
+		};
 		DA2DC23421F2736C00830730 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DFB2621F18830A3600D3244D /* Project object */;
@@ -183,6 +204,18 @@
 			files = (
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA291414235B98F70024A702 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DA29140D235B98F70024A702 /* OpenHABIntent.appex in Embed App Extensions */,
+				DA29140A235B98F70024A702 /* OpenHABIntentUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -284,6 +317,15 @@
 		DA2837092319C7C60066D7B5 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		DA28C35F2251F07000AB409C /* OSLogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogHelper.swift; sourceTree = "<group>"; };
 		DA28C361225241DE00AB409C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DA2913EF235B90C00024A702 /* OpenHABIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = OpenHABIntents.intentdefinition; sourceTree = "<group>"; };
+		DA2913F5235B98F60024A702 /* OpenHABIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenHABIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2913F7235B98F60024A702 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		DA2913F9235B98F60024A702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2913FE235B98F70024A702 /* OpenHABIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenHABIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2913FF235B98F70024A702 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		DA291402235B98F70024A702 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		DA291405235B98F70024A702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DA291407235B98F70024A702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA2DC22F21F2736C00830730 /* openHABTestsSwift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openHABTestsSwift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2DC23121F2736C00830730 /* OpenHABJSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenHABJSONParserTests.swift; sourceTree = "<group>"; };
 		DA2DC23321F2736C00830730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -370,6 +412,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5BABF17E60FC2E5914DBDA6 /* Pods_openHABUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2913F2235B98F60024A702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2913FB235B98F70024A702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA291400235B98F70024A702 /* IntentsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +633,25 @@
 			path = "en-US";
 			sourceTree = "<group>";
 		};
+		DA2913F6235B98F60024A702 /* OpenHABIntent */ = {
+			isa = PBXGroup;
+			children = (
+				DA2913F7235B98F60024A702 /* IntentHandler.swift */,
+				DA2913F9235B98F60024A702 /* Info.plist */,
+			);
+			path = OpenHABIntent;
+			sourceTree = "<group>";
+		};
+		DA291401235B98F70024A702 /* OpenHABIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				DA291402235B98F70024A702 /* IntentViewController.swift */,
+				DA291404235B98F70024A702 /* MainInterface.storyboard */,
+				DA291407235B98F70024A702 /* Info.plist */,
+			);
+			path = OpenHABIntentUI;
+			sourceTree = "<group>";
+		};
 		DA2DC23021F2736C00830730 /* openHABTestsSwift */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +745,7 @@
 		DFB2621E18830A3600D3244D = {
 			isa = PBXGroup;
 			children = (
+				DA2913EF235B90C00024A702 /* OpenHABIntents.intentdefinition */,
 				DA4D4DB4233F9ACB00B37E37 /* README.md */,
 				DA4D4E0E2340A00200B37E37 /* Changes.md */,
 				DA817E79234BF39B00C91824 /* CHANGELOG.md */,
@@ -677,6 +754,8 @@
 				1224F793228A8AE400750965 /* openHABWatch */,
 				1224F7A2228A8AE500750965 /* openHABWatch Extension */,
 				933D7F0522E7015000621A03 /* openHABUITests */,
+				DA2913F6235B98F60024A702 /* OpenHABIntent */,
+				DA291401235B98F70024A702 /* OpenHABIntentUI */,
 				DFB2622818830A3600D3244D /* Products */,
 				DFB2622918830A3600D3244D /* Frameworks */,
 				4CB71842E56AD59CF6A07897 /* Pods */,
@@ -692,6 +771,8 @@
 				1224F792228A8AE400750965 /* openHABWatch.app */,
 				1224F79E228A8AE500750965 /* openHABWatch Extension.appex */,
 				933D7F0422E7015000621A03 /* openHABUITests.xctest */,
+				DA2913F5235B98F60024A702 /* OpenHABIntent.appex */,
+				DA2913FE235B98F70024A702 /* OpenHABIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -708,6 +789,7 @@
 				761F381BC0EE37104D1B51FB /* Pods_openHAB.framework */,
 				088C84E08071B9006F23C001 /* Pods_openHABTestsSwift.framework */,
 				7399BF474F0B708784091349 /* Pods_openHABUITests.framework */,
+				DA2913FF235B98F70024A702 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -849,6 +931,40 @@
 			productReference = 933D7F0422E7015000621A03 /* openHABUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DA2913F4235B98F60024A702 /* OpenHABIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA291411235B98F70024A702 /* Build configuration list for PBXNativeTarget "OpenHABIntent" */;
+			buildPhases = (
+				DA2913F1235B98F60024A702 /* Sources */,
+				DA2913F2235B98F60024A702 /* Frameworks */,
+				DA2913F3235B98F60024A702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenHABIntent;
+			productName = OpenHABIntent;
+			productReference = DA2913F5235B98F60024A702 /* OpenHABIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DA2913FD235B98F70024A702 /* OpenHABIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA29140E235B98F70024A702 /* Build configuration list for PBXNativeTarget "OpenHABIntentUI" */;
+			buildPhases = (
+				DA2913FA235B98F70024A702 /* Sources */,
+				DA2913FB235B98F70024A702 /* Frameworks */,
+				DA2913FC235B98F70024A702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenHABIntentUI;
+			productName = OpenHABIntentUI;
+			productReference = DA2913FE235B98F70024A702 /* OpenHABIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DA2DC22E21F2736C00830730 /* openHABTestsSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA2DC23821F2736D00830730 /* Build configuration list for PBXNativeTarget "openHABTestsSwift" */;
@@ -883,10 +999,13 @@
 				DAEAA89921E1F4BD00267EA3 /* ShellScript */,
 				1224F7B7228A8AE600750965 /* Embed Watch Content */,
 				6E0C215ACF0B360A84EBF690 /* [CP] Embed Pods Frameworks */,
+				DA291414235B98F70024A702 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DA291409235B98F70024A702 /* PBXTargetDependency */,
+				DA29140C235B98F70024A702 /* PBXTargetDependency */,
 			);
 			name = openHAB;
 			packageProductDependencies = (
@@ -908,7 +1027,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = OpenHAB;
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "openHAB e.V.";
 				TargetAttributes = {
@@ -921,6 +1040,12 @@
 					933D7F0322E7015000621A03 = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = DFB2622618830A3600D3244D;
+					};
+					DA2913F4235B98F60024A702 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					DA2913FD235B98F70024A702 = {
+						CreatedOnToolsVersion = 11.1;
 					};
 					DA2DC22E21F2736C00830730 = {
 						CreatedOnToolsVersion = 10.1;
@@ -976,6 +1101,8 @@
 				1224F791228A8AE400750965 /* openHABWatch */,
 				1224F79D228A8AE500750965 /* openHABWatch Extension */,
 				933D7F0322E7015000621A03 /* openHABUITests */,
+				DA2913F4235B98F60024A702 /* OpenHABIntent */,
+				DA2913FD235B98F70024A702 /* OpenHABIntentUI */,
 			);
 		};
 /* End PBXProject section */
@@ -1002,6 +1129,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2913F3235B98F60024A702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2913FC235B98F70024A702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA291406235B98F70024A702 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1194,6 +1336,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DA2913F1235B98F60024A702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2913F8235B98F60024A702 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2913FA235B98F70024A702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA291403235B98F70024A702 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA2DC22B21F2736C00830730 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1251,6 +1409,7 @@
 				9394102622CB5CDB00EB4255 /* Collection+SafeAccess.swift in Sources */,
 				286F556F22EA062700AECC5C /* DynamicButtonStyleBell.swift in Sources */,
 				DFDEE3FD18831099008B26AC /* OpenHABSettingsViewController.swift in Sources */,
+				DA2913F0235B90C00024A702 /* OpenHABIntents.intentdefinition in Sources */,
 				938EDCE122C4FEB800661CA1 /* ScaleAspectFitImageView.swift in Sources */,
 				1224F78E228A89FD00750965 /* WatchService.swift in Sources */,
 				DAEAA89F21E6B16600267EA3 /* UITableView.swift in Sources */,
@@ -1292,6 +1451,16 @@
 			target = DFB2622618830A3600D3244D /* openHAB */;
 			targetProxy = 933D7F0922E7015100621A03 /* PBXContainerItemProxy */;
 		};
+		DA291409235B98F70024A702 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2913FD235B98F70024A702 /* OpenHABIntentUI */;
+			targetProxy = DA291408235B98F70024A702 /* PBXContainerItemProxy */;
+		};
+		DA29140C235B98F70024A702 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2913F4235B98F60024A702 /* OpenHABIntent */;
+			targetProxy = DA29140B235B98F70024A702 /* PBXContainerItemProxy */;
+		};
 		DA2DC23521F2736C00830730 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DFB2622618830A3600D3244D /* openHAB */;
@@ -1315,6 +1484,14 @@
 			);
 			name = Main.storyboard;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		DA291404235B98F70024A702 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA291405235B98F70024A702 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		DFB2623318830A3600D3244D /* InfoPlist.strings */ = {
@@ -1561,6 +1738,150 @@
 			};
 			name = Release;
 		};
+		DA29140F235B98F70024A702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PBAPXHRAM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OpenHABIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = es.spaphone.openhab.OpenHABIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA291410235B98F70024A702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PBAPXHRAM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OpenHABIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = es.spaphone.openhab.OpenHABIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DA291412235B98F70024A702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PBAPXHRAM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OpenHABIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = es.spaphone.openhab.OpenHABIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA291413235B98F70024A702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PBAPXHRAM9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OpenHABIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = es.spaphone.openhab.OpenHABIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DA2DC23621F2736D00830730 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97512493BF42657D31F36571 /* Pods-openHABTestsSwift.debug.xcconfig */;
@@ -1752,6 +2073,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BCF72F56B17C7E8A29FE3759 /* Pods-openHAB.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1797,6 +2119,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 965E6C0728A41A0442B5E59C /* Pods-openHAB.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1863,6 +2186,24 @@
 			buildConfigurations = (
 				933D7F0B22E7015100621A03 /* Debug */,
 				933D7F0C22E7015100621A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA29140E235B98F70024A702 /* Build configuration list for PBXNativeTarget "OpenHABIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA29140F235B98F70024A702 /* Debug */,
+				DA291410235B98F70024A702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA291411235B98F70024A702 /* Build configuration list for PBXNativeTarget "OpenHABIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA291412235B98F70024A702 /* Debug */,
+				DA291413235B98F70024A702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
