@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [Version 2.2.43, Build 1571581107] - 2019-10-20
 ### Fixed
 - Fixed chart legend #481: The legend parameter wasn't work anymore, legend was still displayed if set to false
 
