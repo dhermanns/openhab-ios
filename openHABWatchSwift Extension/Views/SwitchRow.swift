@@ -19,15 +19,14 @@ struct SwitchRow: View {
     @ObservedObject var widget: ObservableOpenHABWidget
     @EnvironmentObject var dataObject: ObservableOpenHABDataObject
 
-    var iconUrl: URL? {
-        return Endpoint.icon(rootUrl: dataObject.openHABRootUrl,
-                             version: 2,
-                             icon: widget.icon,
-                             value: widget.item?.state ?? "",
-                             iconType: .png).url
-    }
-
     var body: some View {
+        var iconUrl: URL? {
+            return Endpoint.icon(rootUrl: dataObject.openHABRootUrl,
+                                 version: 2,
+                                 icon: widget.icon,
+                                 value: widget.stateBinding ? "ON" : "OFF",
+                                 iconType: .png).url
+        }
         return Toggle(isOn: $widget.stateBinding) {
             HStack {
                 KFImage(iconUrl)
@@ -58,7 +57,7 @@ struct SwitchRow: View {
                 }
             }
         }
-        .padding(.trailing, 5)
+        .padding(.trailing)
         .cornerRadius(5)
     }
 }

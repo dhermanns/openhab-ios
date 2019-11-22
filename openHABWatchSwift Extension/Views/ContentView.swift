@@ -35,20 +35,14 @@ struct ContentView: View {
     }
 }
 
-extension ContentView {
-    init(urlString: String) {
-        viewModel = UserData(urlString: urlString)
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         return Group {
-            ContentView(viewModel: UserData())
-                .previewDevice("Apple Watch Series 4 - 44mm")
-                .environmentObject(ObservableOpenHABDataObject())
+//            ContentView(viewModel: UserData())
+//                .previewDevice("Apple Watch Series 4 - 44mm")
+//                .environmentObject(ObservableOpenHABDataObject())
 
-            ContentView(viewModel: UserData(urlString: PreviewConstants.remoteURLString))
+            ContentView(viewModel: UserData(urlString: PreviewConstants.remoteURLString, refresh: false))
                 .previewDevice("Apple Watch Series 2 - 38mm")
                 .environmentObject(ObservableOpenHABDataObject(openHABRootUrl: PreviewConstants.remoteURLString))
         }

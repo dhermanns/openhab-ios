@@ -19,7 +19,7 @@ class HostingController: WKHostingController<AnyView> {
     var openHABDataObject = ObservableOpenHABDataObject(openHABRootUrl: Preferences.localUrl)
     override var body: AnyView {
         AnyView(
-            ContentView(viewModel: UserData(urlString: Preferences.localUrl))
+            ContentView(viewModel: UserData(urlString: Preferences.localUrl, refresh: true))
                 .environmentObject(openHABDataObject)
         )
     }

@@ -16,7 +16,7 @@ class ObservableOpenHABDataObject: NSObject, DataObject, ObservableObject {
     @Published var openHABRootUrl = ""
     @Published var openHABUsername = ""
     @Published var openHABPassword = ""
-    var openHABVersion: Int = 0
+    @Published var openHABVersion: Int = 0
 }
 
 extension ObservableOpenHABDataObject {

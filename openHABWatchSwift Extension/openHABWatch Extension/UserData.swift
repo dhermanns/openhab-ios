@@ -24,6 +24,9 @@ final class UserData: ObservableObject {
     var openHABSitemapPage: ObservableOpenHABSitemapPage?
 
     private var commandOperation: Alamofire.Request?
+    private var currentPageOperation: Alamofire.Request?
+
+    var pageURL: URL?
 
     init() {
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
@@ -48,16 +51,40 @@ final class UserData: ObservableObject {
         }
     }
 
-    init(urlString: String) {
-        commandOperation = NetworkConnection.page(url: Endpoint.watchSitemap(openHABRootUrl: urlString, sitemapName: "watch").url,
-                                                  longPolling: false,
-                                                  openHABVersion: 2) { [weak self] response in
+    init(urlString: String, refresh: Bool) {
+        pageURL = Endpoint.watchSitemap(openHABRootUrl: urlString, sitemapName: "watch").url
+        loadPage(longPolling: false, refresh: refresh)
+    }
+
+    func loadPage(longPolling: Bool, refresh: Bool) {
+        if currentPageOperation != nil {
+            currentPageOperation?.cancel()
+            currentPageOperation = nil
+        }
+
+        guard let pageURL = pageURL else { return }
+        os_log("pageURL = %{PUBLIC}@", log: OSLog.remoteAccess, type: .info, pageURL.absoluteString)
+
+        currentPageOperation = NetworkConnection.page(url: pageURL,
+                                                      longPolling: longPolling,
+                                                      openHABVersion: 2) { [weak self] response in
             guard let self = self else { return }
 
             switch response.result {
             case .success:
-                os_log("Page loaded with success", log: OSLog.remoteAccess, type: .info)
 
+                self.openHABSitemapPage?.sendCommand = { [weak self] item, command in
+                    self?.sendCommand(item, commandToSend: command)
+                }
+
+                self.widgets = self.openHABSitemapPage?.widgets ?? []
+
+                let headers = response.response?.allHeaderFields
+
+                NetworkConnection.atmosphereTrackingId = headers?["X-Atmosphere-tracking-id"] as? String ?? ""
+                if !NetworkConnection.atmosphereTrackingId.isEmpty {
+                    os_log("Found X-Atmosphere-tracking-id: %{PUBLIC}@", log: .remoteAccess, type: .info, NetworkConnection.atmosphereTrackingId)
+                }
                 if let data = response.result.value {
                     // Newer versions talk JSON!
                     os_log("openHAB 2", log: OSLog.remoteAccess, type: .info)
@@ -76,14 +103,33 @@ final class UserData: ObservableObject {
                 self.openHABSitemapPage?.sendCommand = { [weak self] item, command in
                     self?.sendCommand(item, commandToSend: command)
                 }
-
                 self.widgets = self.openHABSitemapPage?.widgets ?? []
 
-            case .failure:
-                break
+                if refresh { self.loadPage(longPolling: true, refresh: true) }
+            case let .failure(error):
+                os_log("On LoadPage %{PUBLIC}@ code: %d ", log: .remoteAccess, type: .error, error.localizedDescription, response.response?.statusCode ?? 0)
+
+                NetworkConnection.atmosphereTrackingId = ""
+                if (error as NSError?)?.code == -1001, longPolling {
+                    os_log("Timeout, restarting requests", log: OSLog.remoteAccess, type: .error)
+                    self.loadPage(longPolling: false, refresh: true)
+                } else if (error as NSError?)?.code == -999 {
+                    os_log("Request was cancelled", log: OSLog.remoteAccess, type: .error)
+                } else {
+                    // Error
+                    DispatchQueue.main.async {
+                        if (error as NSError?)?.code == -1012 {
+                            #warning("to be transferred to SwiftUI")
+                        } else {
+                            #warning("to be transferred to SwiftUI")
+                        }
+                    }
+                }
             }
         }
-        commandOperation?.resume()
+        currentPageOperation?.resume()
+
+        os_log("OpenHABViewController request sent", log: .remoteAccess, type: .error)
     }
 
     func sendCommand(_ item: OpenHABItem?, commandToSend command: String?) {
