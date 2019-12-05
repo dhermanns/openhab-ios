@@ -968,12 +968,37 @@ extension OpenHABViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let widget: OpenHABWidget? = relevantWidget(indexPath: indexPath)
 
-        let cell: UITableViewCell
+        var cell: UITableViewCell
 
         switch widget?.type {
         case "Frame":
             cell = tableView.dequeueReusableCell(for: indexPath) as FrameUITableViewCell
         case "Switch":
+
+            if let widget = widget {
+                switch widget {
+                case \.mappings.isNotEmpty:
+                    cell = tableView.dequeueReusableCell(for: indexPath) as SegmentedUITableViewCell
+                case \.item?.type == "Switch":
+                    cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
+                case \.item?.type == "RollershutterItem":
+                    cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
+                case \.item?.type == "Rollershutter":
+                    cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
+//                case (\.item?.type == "Group") && false:
+//                cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
+
+                case \OpenHABWidget.item?.stateDescription?.options.isNilOrEmpty:
+                    cell = tableView.dequeueReusableCell(for: indexPath) as SegmentedUITableViewCell
+                default:
+                    cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
+
+                }
+            } else {
+                cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
+            }
+
+
             // Reflecting the discussion held in https://github.com/openhab/openhab-core/issues/952
             if widget?.mappings.count ?? 0 > 0 {
                 cell = tableView.dequeueReusableCell(for: indexPath) as SegmentedUITableViewCell

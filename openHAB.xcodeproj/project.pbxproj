@@ -103,6 +103,9 @@
 		DA65871F236F83CE007E2E7F /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA65871E236F83CD007E2E7F /* UserDefaultsExtension.swift */; };
 		DA6587222370C9D8007E2E7F /* PreferencesHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6587212370C9D8007E2E7F /* PreferencesHostingController.swift */; };
 		DA7224D223828D3400712D20 /* Preview_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7224D123828D3300712D20 /* Preview_Constants.swift */; };
+		DA729FEC238C568C0069162C /* ImageTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA729FEB238C568C0069162C /* ImageTransform.swift */; };
+		DA729FEE238C7D670069162C /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA729FED238C7D670069162C /* Pattern.swift */; };
+		DA729FEF238D5ED10069162C /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA729FED238C7D670069162C /* Pattern.swift */; };
 		DA72E1B2236DE9F200B8EF3A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72E1B0236DE9F200B8EF3A /* AppState.swift */; };
 		DA72E1B3236DE9F200B8EF3A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72E1B1236DE9F200B8EF3A /* AppConstants.swift */; };
 		DA72E1B8236DEA0900B8EF3A /* AppMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72E1B5236DEA0900B8EF3A /* AppMessageService.swift */; };
@@ -387,6 +390,8 @@
 		DA65871E236F83CD007E2E7F /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		DA6587212370C9D8007E2E7F /* PreferencesHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesHostingController.swift; sourceTree = "<group>"; };
 		DA7224D123828D3300712D20 /* Preview_Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview_Constants.swift; sourceTree = "<group>"; };
+		DA729FEB238C568C0069162C /* ImageTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransform.swift; sourceTree = "<group>"; };
+		DA729FED238C7D670069162C /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		DA72E1B0236DE9F200B8EF3A /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DA72E1B1236DE9F200B8EF3A /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		DA72E1B5236DEA0900B8EF3A /* AppMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMessageService.swift; sourceTree = "<group>"; };
@@ -539,6 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				DA0776EF234788010086C685 /* UserData.swift */,
+				DA729FED238C7D670069162C /* Pattern.swift */,
+				DA729FEB238C568C0069162C /* ImageTransform.swift */,
 			);
 			name = Domain;
 			path = "openHABWatch Extension";
@@ -1575,7 +1582,9 @@
 				DA72E1B3236DE9F200B8EF3A /* AppConstants.swift in Sources */,
 				DA72E1B8236DEA0900B8EF3A /* AppMessageService.swift in Sources */,
 				DA72E1B2236DE9F200B8EF3A /* AppState.swift in Sources */,
+				DA729FEC238C568C0069162C /* ImageTransform.swift in Sources */,
 				DA07752B2346705F0086C685 /* ExtensionDelegate.swift in Sources */,
+				DA729FEE238C7D670069162C /* Pattern.swift in Sources */,
 				DAC6608F236F80BA00F4501E /* PreferencesRowUIView.swift in Sources */,
 				9350F17A23814FAC00054BA8 /* ObservableOpenHABSitemapPage.swift in Sources */,
 				DA0776F0234788010086C685 /* UserData.swift in Sources */,
@@ -1643,6 +1652,7 @@
 				DFB2624418830A3600D3244D /* OpenHABViewController.swift in Sources */,
 				DF05FF2018965B5400FF2F9B /* RollershutterUITableViewCell.swift in Sources */,
 				286F557122EA3D4E00AECC5C /* DynamicButtonStyleGear.swift in Sources */,
+				DA729FEF238D5ED10069162C /* Pattern.swift in Sources */,
 				DFA16EC118898A8400EDB0BB /* SegmentedUITableViewCell.swift in Sources */,
 				DAEAA89D21E6B06400267EA3 /* ReusableView.swift in Sources */,
 				DF05FF231896BD2D00FF2F9B /* SelectionUITableViewCell.swift in Sources */,
