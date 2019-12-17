@@ -47,22 +47,27 @@ func > <T, V: Comparable>(lhs: KeyPath<T, V>, rhs: V) -> Pattern<T> {
     return Pattern { $0[keyPath: lhs] > rhs }
 }
 
-// func combine <T,V> (pt: Pattern<T>, pv: Pattern<V>) -> Pattern {
-//    return pt.closure
-// }
-
-extension Collection {
-    public var isNotEmpty: Bool {
-
-        return !isEmpty
-    }
+func && <T>(lhs: Pattern<T>, rhs: Pattern<T>) -> Pattern<T> {
+    Pattern { lhs.closure($0) && rhs.closure($0) }
 }
+
+func || <T>(lhs: Pattern<T>, rhs: Pattern<T>) -> Pattern<T> {
+    Pattern { lhs.closure($0) || rhs.closure($0) }
+}
+
+prefix func ! <T>(rhs: KeyPath<T, Bool>) -> Pattern<T> {
+    rhs == false
+}
+
+
 
 extension Optional where Wrapped: Collection {
     var isNilOrEmpty: Bool {
         return self?.isEmpty ?? true
     }
+
     var isNeitherNilNorEmpty: Bool {
         return !isNilOrEmpty
     }
+
 }

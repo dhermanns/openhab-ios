@@ -977,27 +977,26 @@ extension OpenHABViewController: UITableViewDelegate, UITableViewDataSource {
 
             if let widget = widget {
                 switch widget {
-                case \.mappings.isNotEmpty:
+                case !\.mappings.isEmpty:
                     cell = tableView.dequeueReusableCell(for: indexPath) as SegmentedUITableViewCell
                 case \.item?.type == "Switch":
                     cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
-                case \.item?.type == "RollershutterItem":
+                case \.item?.type == "RollershutterItem" :
                     cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
+//                case \.item?.type.any(of: ) == "RollershutterItem":
+//                    cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
                 case \.item?.type == "Rollershutter":
                     cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
-//                case (\.item?.type == "Group") && false:
-//                cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
-
-                case \OpenHABWidget.item?.stateDescription?.options.isNilOrEmpty:
+                case (\.item?.type == "Group") && \.item?.groupType == "Rollershutter":
+                    cell = tableView.dequeueReusableCell(for: indexPath) as RollershutterUITableViewCell
+                case \OpenHABWidget.item?.stateDescription?.options.isEmpty:
                     cell = tableView.dequeueReusableCell(for: indexPath) as SegmentedUITableViewCell
                 default:
                     cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
-
                 }
             } else {
                 cell = tableView.dequeueReusableCell(for: indexPath) as SwitchUITableViewCell
             }
-
 
             // Reflecting the discussion held in https://github.com/openhab/openhab-core/issues/952
             if widget?.mappings.count ?? 0 > 0 {
